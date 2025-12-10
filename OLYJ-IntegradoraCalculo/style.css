@@ -1,0 +1,376 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: radial-gradient(circle at top, #019673 0, #002a5c 45%, #000814 100%);
+  color: #f9fafb;
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  border-radius: 24px;
+  padding: 18px 22px 22px;
+  background: radial-gradient(circle at top left, rgba(1, 150, 115, 0.15), rgba(0, 0, 0, 0.85));
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+header {
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-left {
+  flex: 1;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid rgba(1, 150, 115, 0.9);
+  color: #a7f3d0;
+  background: rgba(0, 0, 0, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+header h1 {
+  margin-top: 6px;
+  font-size: 1.5rem;
+  color: #ecfdf5;
+}
+
+header p {
+  margin-top: 4px;
+  font-size: 0.85rem;
+  color: #cbd5f5;
+  max-width: 520px;
+}
+
+.utez-logo {
+  width: 150px;
+  height: auto;
+  object-fit: contain;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 4px;
+  box-shadow: 0 0 18px rgba(1, 150, 115, 0.9);
+}
+
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.4fr);
+  gap: 18px;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .utez-logo {
+    align-self: flex-end;
+  }
+}
+
+.panel {
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 18px;
+  padding: 14px 14px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+}
+
+.panel h2 {
+  font-size: 1.05rem;
+  color: #f9fafb;
+  margin-bottom: 4px;
+}
+
+.panel small {
+  font-size: 0.78rem;
+  color: #9ca3af;
+}
+
+.field {
+  margin-top: 10px;
+  font-size: 0.85rem;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 3px;
+  font-weight: 500;
+  color: #e5e7eb;
+}
+
+.field small {
+  display: block;
+  font-size: 0.7rem;
+  color: #9ca3af;
+}
+
+input[type="number"],
+select {
+  width: 100%;
+  padding: 7px 9px;
+  border-radius: 10px;
+  border: 1px solid rgba(148, 163, 184, 0.8);
+  background: rgba(15, 23, 42, 0.9);
+  color: #f9fafb;
+  font-size: 0.85rem;
+  outline: none;
+  transition: border 0.15s, box-shadow 0.15s, background 0.15s;
+}
+
+input[type="number"]::placeholder {
+  color: #6b7280;
+}
+
+input[type="number"]:focus,
+select:focus {
+  border-color: #22c55e;
+  box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.65);
+  background: rgba(15, 23, 42, 0.98);
+}
+
+.inputs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 8px;
+  margin-top: 8px;
+}
+
+/* Botón calcular */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: transform 0.1s, box-shadow 0.15s, filter 0.15s;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #22c55e, #0ea5e9);
+  color: white;
+  box-shadow: 0 10px 26px rgba(16, 185, 129, 0.6);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.06);
+  transform: translateY(-1px);
+  box-shadow: 0 14px 32px rgba(16, 185, 129, 0.75);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 7px 18px rgba(16, 185, 129, 0.55);
+}
+
+/* Resultado, fórmula, errores */
+.result {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  padding: 7px 10px;
+  border-radius: 12px;
+  background: rgba(22, 163, 74, 0.15);
+  border: 1px solid rgba(74, 222, 128, 0.5);
+  color: #bbf7d0;
+}
+
+.result strong {
+  font-size: 1rem;
+  color: #4ade80;
+}
+
+.formula {
+  margin-top: 6px;
+  font-size: 0.8rem;
+  color: #cbd5f5;
+}
+
+.error {
+  margin-top: 6px;
+  font-size: 0.78rem;
+  color: #fecaca;
+}
+
+/* ===========================
+   Panel 3D y animaciones
+=========================== */
+.viewer-panel {
+  position: relative;
+  background: radial-gradient(circle at top, #020617, #000814);
+  border-radius: 18px;
+  padding: 10px;
+  border: 1px solid rgba(15, 23, 42, 0.9);
+  box-shadow: 0 20px 46px rgba(0, 0, 0, 0.85);
+  color: #e5e7eb;
+}
+
+/* Cabecera del visor con chip de figura */
+.viewer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.viewer-panel h2 {
+  font-size: 1.05rem;
+}
+
+/* Chip de la figura actual */
+.figure-chip {
+  font-size: 0.7rem;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(56, 189, 248, 0.8);
+  color: #e0f2fe;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Puntito verde dentro del chip */
+.figure-chip::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: #22c55e;
+  box-shadow: 0 0 10px rgba(34, 197, 94, 0.9);
+}
+
+/* Animación del chip al cambiar de figura */
+@keyframes figurePop {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.figure-chip.animate {
+  animation: figurePop 0.28s ease-out;
+}
+
+/* Canvas 3D */
+#viewer {
+  width: 100%;
+  height: 360px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: radial-gradient(circle at top, #1f2937, #020617);
+  transition: box-shadow 0.2s;
+}
+
+/* Flash alrededor del canvas al cambiar de figura */
+@keyframes viewerFlash {
+  0% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.0);
+  }
+  50% {
+    box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.0);
+  }
+}
+
+#viewer.flash {
+  animation: viewerFlash 0.42s ease-out;
+}
+
+/* Texto informativo debajo del canvas */
+.viewer-info {
+  font-size: 0.7rem;
+  margin-top: 5px;
+  color: #9ca3af;
+}
+
+
+.team {
+  margin-top: 18px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(148, 163, 184, 0.4);
+}
+
+.team h3 {
+  font-size: 0.95rem;
+  color: #e5e7eb;
+}
+
+.team-subtitle {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  margin-top: 2px;
+}
+
+.team-list {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chip-person {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  font-size: 0.78rem;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(56, 189, 248, 0.7);
+  color: #e0f2fe;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.9);
+  overflow: hidden;
+}
+
+.chip-person::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: #22c55e;
+  box-shadow: 0 0 10px rgba(34, 197, 94, 0.9);
+}

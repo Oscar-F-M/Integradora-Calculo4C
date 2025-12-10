@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title> Volúmenes 3D UTEZ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <div class="badge">UTEZ · Matemáticas 3D</div>
+        <h1>Calculadora de Volúmenes 3D</h1>
+        <p>Elige una figura, ingresa sus dimensiones, obtén el volumen y mira la figura en 3D.</p>
+      </div>
+
+      <img src="Utez.png" alt="Logo UTEZ" class="utez-logo">
+    </header>
+
+    <div class="layout">
+      <div class="panel">
+        <h2>Datos de la figura</h2>
+        <small>Selecciona una figura y completa los campos necesarios.</small>
+
+        <div class="field" style="margin-top: 10px;">
+          <label for="shapeSelect">Figura:</label>
+          <select id="shapeSelect">
+            <option value="cilindro">Cilindro (r, h)</option>
+            <option value="esfera">Esfera (r)</option>
+            <option value="cono">Cono (r, h)</option>
+            <option value="prisma">Prisma rectangular (l, a, h)</option>
+            <option value="elipsoide">Elipsoide (a, b, c)</option>
+          </select>
+        </div>
+
+        <div id="inputsContainer" class="inputs-grid">
+        </div>
+
+        <button class="btn btn-primary" id="calcBtn">Calcular volumen</button>
+
+        <div id="resultBox" class="result">
+          Volumen: <strong>—</strong> unidades³
+        </div>
+        <div id="formulaBox" class="formula">
+          Fórmula: V = π · r² · h  (cilindro)
+        </div>
+        <div id="errorBox" class="error" style="display:none;"></div>
+      </div>
+
+      <!-- Panel del visor 3D -->
+      <div class="viewer-panel">
+        <div class="viewer-header">
+          <h2>Vista 3D</h2>
+          <!-- Chip que muestra la figura actual -->
+          <span id="currentFigure" class="figure-chip">Cilindro</span>
+        </div>
+        <div id="viewer"></div>
+        <div class="viewer-info">
+          La figura se escala automáticamente para caber en la escena y gira sola para apreciarla en 3D.
+        </div>
+      </div>
+    </div>
+
+    <footer class="team">
+      <h3>Equipo de desarrollo</h3>
+      <p class="team-subtitle">Proyecto integrador de Cálculo</p>
+      <div class="team-list">
+        <span class="chip-person">Oscar Mendoza</span>
+        <span class="chip-person">Daniel Lugo</span>
+        <span class="chip-person">Yeimy Medina</span>
+        <span class="chip-person">Janetzi Escudero</span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Three.js desde CDN -->
+  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
